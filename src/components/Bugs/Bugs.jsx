@@ -13,7 +13,7 @@ const Bugs = () => {
     setData(res.data)
    }
    getData()
-  },[]);
+  },[id]);
   var navigate = useNavigate();
   const viewBug = (bugId) => {
     navigate(`/${id}/bugs/${bugId}`);
@@ -24,9 +24,9 @@ const Bugs = () => {
         <div className="card d-flex justify-content-between">
           <div className="card-body">
             <h1 className="mb-3">Bugs</h1>
-            <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div className="col p-4 d-flex flex-column position-static">
-                <h4>No Bug Found</h4>
+            <div className="card d-flex justify-content-between">
+              <div className="card-body">
+                <h5>No Bug Found</h5>
               </div>
             </div>
           </div>
@@ -41,9 +41,9 @@ const Bugs = () => {
           <h1 className="mb-3">Bugs</h1>
           {data.map((bug) => {
             return(
-              <div key = {bug.id} className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div className="col p-4 d-flex flex-column position-static">
-                  <h4 className="mb-3">{bug.title}</h4>
+              <div key = {bug.id} className="card w-auto mb-3">
+                <div className="card-body">
+                  <h5 className="card-title">{bug.title}</h5>
                   <Button variant="dark" className="mx-4 mt-1 mb-1" onClick={()=>viewBug(bug.id)}>View Bug</Button>
                 </div>
               </div>
