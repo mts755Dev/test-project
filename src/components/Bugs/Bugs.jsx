@@ -3,21 +3,23 @@ import { useParams } from 'react-router-dom';
 import { Button } from "react-bootstrap";
 import { useNavigate} from "react-router-dom";
 import { getAPIBugsData } from '../../services/ProjectService';
+
 const Bugs = () => {
   const {id} = useParams();
   const [data, setData] = useState([]);
   useEffect( () => {
    const getData = async()=>{
-    const res = await getAPIBugsData(id)
-    console.log(res.data)
-    setData(res.data)
-   }
-   getData()
+      const res = await getAPIBugsData(id)
+      console.log(res.data)
+      setData(res.data)
+    }
+    getData();
   },[id]);
   var navigate = useNavigate();
   const viewBug = (bugId) => {
     navigate(`/${id}/bugs/${bugId}`);
   }
+
   if (data.length===0){
     return(
       <div className="container w-50">

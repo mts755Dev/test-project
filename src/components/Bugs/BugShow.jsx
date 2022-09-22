@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAPIBugData } from '../../services/ProjectService';
 import { Card } from "react-bootstrap";
+
 const BugShow = () => {
   const {id, bugId} = useParams();
   const [data, setData] = useState([]);
   useEffect( () => {
-   const getData = async()=>{
+    const getData = async()=>{
     const res = await getAPIBugData(id,bugId)
     console.log(res.data)
     setData(res.data)
-   }
-   getData()
+    }
+    getData();
   },[bugId, id]);
 
   return(

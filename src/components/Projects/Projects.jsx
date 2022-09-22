@@ -2,17 +2,19 @@ import { useState, useEffect } from 'react';
 import { Button } from "react-bootstrap";
 import { getAPIData } from '../../services/ProjectService';
 import { useNavigate} from "react-router-dom";
+
 const Project = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     getAPIData().then((data) => {
         setData(data);
-      });
+    });
   },[]);
   var navigate = useNavigate();
   const showBugs = (id) => {
     navigate(`/${id}/bugs`);
   }
+
   return(
     <div className="container w-50">
       <div className="card d-flex justify-content-between">
