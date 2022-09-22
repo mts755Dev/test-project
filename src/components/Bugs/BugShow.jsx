@@ -12,7 +12,7 @@ const BugShow = () => {
     setData(res.data)
    }
    getData()
-  },[]);
+  },[bugId, id]);
 
   return(
     <div className="container w-50">

@@ -13,7 +13,7 @@ const Bugs = () => {
     setData(res.data)
    }
    getData()
-  },[]);
+  },[id]);
   var navigate = useNavigate();
   const viewBug = (bugId) => {
     navigate(`/${id}/bugs/${bugId}`);
