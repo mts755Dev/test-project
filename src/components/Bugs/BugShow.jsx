@@ -1,7 +1,7 @@
+import { Card } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAPIBugData } from '../../services/ProjectService';
-import { Card } from "react-bootstrap";
 
 const BugShow = () => {
   const {id, bugId} = useParams();
@@ -41,4 +41,5 @@ const BugShow = () => {
 
   )
 };
+
 export default BugShow;

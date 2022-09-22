@@ -1,9 +1,9 @@
 import './App.css';
-import {Route, Routes, Link} from 'react-router-dom';
-import Projects from './components/Projects/Projects';
 import Head from './components/Head/Head';
 import Bugs from './components/Bugs/Bugs';
 import BugShow from './components/Bugs/BugShow';
+import {Route, Routes, Link} from 'react-router-dom';
+import Projects from './components/Projects/Projects';
 
 function App() {
   return (

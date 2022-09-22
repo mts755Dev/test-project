@@ -1,11 +1,12 @@
+import { Button } from "react-bootstrap";
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button } from "react-bootstrap";
 import { useNavigate} from "react-router-dom";
 import { getAPIBugsData } from '../../services/ProjectService';
 
 const Bugs = () => {
   const {id} = useParams();
+  var navigate = useNavigate();
   const [data, setData] = useState([]);
   useEffect( () => {
    const getData = async()=>{
@@ -15,10 +16,6 @@ const Bugs = () => {
     }
     getData();
   },[id]);
-  var navigate = useNavigate();
-  const viewBug = (bugId) => {
-    navigate(`/${id}/bugs/${bugId}`);
-  }
 
   if (data.length===0){
     return(
@@ -46,7 +43,7 @@ const Bugs = () => {
               <div key = {bug.id} className="card w-auto mb-3">
                 <div className="card-body">
                   <h5 className="card-title">{bug.title}</h5>
-                  <Button variant="dark" className="mx-4 mt-1 mb-1" onClick={()=>viewBug(bug.id)}>View Bug</Button>
+                  <Button variant="dark" className="mx-4 mt-1 mb-1" onClick={()=>navigate(`/${id}/bugs/${bug.id}`)}>View Bug</Button>
                 </div>
               </div>
             );
